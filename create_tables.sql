@@ -1,3 +1,4 @@
+CREATE DATABASE campus_practice_sql;
 USE campus_practice_sql;
 
 CREATE TABLE Company
