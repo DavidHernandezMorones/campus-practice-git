@@ -13,7 +13,7 @@ BEGIN
         JOIN Employees
         ON Projects_Employees.EmployeesId = Employees.Id
         AND Employees.FirstName = @EmployeeName
-        ));
+        ))
 
     DECLARE @id AS INT = CONVERT(INT, (
         SELECT Projects.Id
@@ -24,7 +24,7 @@ BEGIN
         ON Projects_Employees.EmployeesId = Employees.Id
         WHERE Employees.FirstName = @EmployeeName
         AND StartDate = @projectdate
-        ));
+        ))
 
     RETURN @id
 END

@@ -1,16 +1,19 @@
-USE campus_practice_sql;
+USE campus_practice_sql
+GO
 
 INSERT INTO Status (Name)
 VALUES ('Pendiente'),
        ('En proceso'),
        ('Cancelado'),
        ('Finalizado'),
-       ('En Pausa');
+       ('En Pausa')
+GO
 
 INSERT INTO Company(Name, Address)
 VALUES ('IMC', '5151 W 29th St #2201 Greeley, Colorado(CO), 80634'),
        ('Atoz', '2007 Ardmore Hwy Ardmore, Tennessee(TN), 38449'),
-       ('Disnei', '4226 Highgate Dr Horn Lake, Mississippi(MS), 38637');
+       ('Disnei', '4226 Highgate Dr Horn Lake, Mississippi(MS), 38637')
+GO
 
 INSERT INTO Employees (FirstName, LastName, Email, Phone, Salary, CompanyId)
 VALUES ('Juan', 'Perez', 'juan@jmail.com', '9991808182', 9500, (SELECT Id FROM Company WHERE Name = 'IMC')),
@@ -22,14 +25,16 @@ VALUES ('Juan', 'Perez', 'juan@jmail.com', '9991808182', 9500, (SELECT Id FROM C
        ('Jose', 'Pavon', 'jose@jmail.com', '9991808188', 12000, (SELECT Id FROM Company WHERE Name = 'IMC')),
        ('Pancho', 'Fernandez', 'pancho@jmail.com', '9991808189', 12500, (SELECT Id FROM Company WHERE Name = 'Atoz')),
        ('Francisco', 'Fernandez', 'francisco@jmail.com', '9991808190', 25000, (SELECT Id FROM Company WHERE Name = 'Disnei')),
-       ('Diego', 'Olivarez', 'diego@jmail.com', '9991808191', 9000, (SELECT Id FROM Company WHERE Name = 'IMC'));
+       ('Diego', 'Olivarez', 'diego@jmail.com', '9991808191', 9000, (SELECT Id FROM Company WHERE Name = 'IMC'))
+GO
 
 INSERT INTO Projects (Name, StartDate, Deadline, FinishedOn, StatusId)
 VALUES ('Dainler Learning', '2022/7/11', '2050/2/22', NULL, (SELECT Id FROM Status WHERE Name = 'En proceso')),
        ('Provident Software', '2022/9/15', '2023/2/28', NULL, (SELECT Id FROM Status WHERE Name = 'Pendiente')),
        ('DataAnlysis', '2023/1/31', '2023/10/5', NULL, (SELECT Id FROM Status WHERE Name = 'Pendiente')),
        ('SoftCentral Migration', '2021/5/2', '2022/7/25', '2022/1/1', (SELECT Id FROM Status WHERE Name = 'Finalizado')),
-       ('Atoz Insight', '2022/12/30', '2024/10/1', NULL, (SELECT Id FROM Status WHERE Name = 'Cancelado'));
+       ('Atoz Insight', '2022/12/30', '2024/10/1', NULL, (SELECT Id FROM Status WHERE Name = 'Cancelado'))
+GO
 
 INSERT INTO Projects_Employees (ProjectId, EmployeesId)
 VALUES (1, 1),
@@ -47,4 +52,5 @@ VALUES (1, 1),
        (4, 7),
        (5, 2),
        (5, 5),
-       (5, 8);
+       (5, 8)
+GO
